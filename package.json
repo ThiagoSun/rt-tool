@@ -9,9 +9,6 @@
     "type": "git",
     "url": "git@github.com:ThiagoSun/rt-tool.git"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [
     "react",
     "redux",
@@ -21,8 +18,6 @@
   "license": "MIT",
   "devDependencies": {
     "chalk": "^2.4.2",
-    "co": "^4.6.0",
-    "co-prompt": "^1.0.0",
     "commander": "^2.19.0",
     "readline-sync": "^1.4.9"
   }
