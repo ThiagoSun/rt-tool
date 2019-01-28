@@ -1,0 +1,364 @@
+{
+  "Code": 0,
+  "Message": "SUCCESS",
+  "Result": {
+    "category": [
+      {
+        "id": 0,
+        "name": "女装",
+        "children": [
+          {
+            "id": 1000,
+            "name": "风格馆",
+            "levelOneId": 0,
+            "children": [
+              {
+                "id": 10000,
+                "name": "欧美风",
+                "levelOneId": 0,
+                "levelTwoId": 1000,
+                "imgSrc": "https://img.alicdn.com/tps/TB1jR36JpXXXXbXXFXXXXXXXXXX-800-800.png_140x140Q90s50.jpg_.webp",
+                "children": [ ]
+              },
+              {
+                "id": 10001,
+                "name": "文艺风",
+                "levelOneId": 0,
+                "levelTwoId": 1000,
+                "imgSrc": "https://img.alicdn.com/tps/TB1hqU1JpXXXXbtXFXXXXXXXXXX-800-800.png_140x140Q90s50.jpg_.webp",
+                "children": [ ]
+              },
+              {
+                "id": 10002,
+                "name": "街头风",
+                "levelOneId": 0,
+                "levelTwoId": 1000,
+                "imgSrc": "https://img.alicdn.com/tps/TB1mrU7JpXXXXXbXFXXXXXXXXXX-800-800.png_140x140Q90s50.jpg_.webp",
+                "children": [ ]
+              },
+              {
+                "id": 10003,
+                "name": "甜美风",
+                "levelOneId": 0,
+                "levelTwoId": 1000,
+                "imgSrc": "https://img.alicdn.com/tps/TB1lO3_JpXXXXa7XpXXXXXXXXXX-1200-1200.png_140x140Q90s50.jpg_.webp",
+                "children": [ ]
+              },
+              {
+                "id": 10004,
+                "name": "学院风",
+                "levelOneId": 0,
+                "levelTwoId": 1000,
+                "imgSrc": "https://img.alicdn.com/tps/TB1WWg1JpXXXXamXVXXXXXXXXXX-800-800.png_140x140Q90s50.jpg_.webp",
+                "children": [ ]
+              },
+              {
+                "id": 10005,
+                "name": "田园风",
+                "levelOneId": 0,
+                "levelTwoId": 1000,
+                "imgSrc": "https://img.alicdn.com/tps/TB1giGtJXXXXXcmXVXXXXXXXXXX-800-800.png_140x140Q90s50.jpg_.webp",
+                "children": [ ]
+              }
+            ]
+          },
+          {
+            "id": 1001,
+            "name": "气质裙装",
+            "levelOneId": 0,
+            "children": [
+              {
+                "id": 10006,
+                "name": "印花连衣裙",
+                "levelOneId": 0,
+                "levelTwoId": 1001,
+                "imgSrc": "https://img.alicdn.com/tps/TB1TEOXIpXXXXXAXXXXXXXXXXXX.jpg_140x140Q50s50.jpg_.webp",
+                "children": [ ]
+              },
+              {
+                "id": 10007,
+                "name": "棉麻连衣裙",
+                "levelOneId": 0,
+                "levelTwoId": 1001,
+                "imgSrc": "https://img.alicdn.com/tps/TB1bopNIpXXXXXUXVXXXXXXXXXX.jpg_140x140Q50s50.jpg_.webp",
+                "children": [ ]
+              },
+              {
+                "id": 10008,
+                "name": "吊带连衣裙",
+                "levelOneId": 0,
+                "levelTwoId": 1001,
+                "imgSrc": "https://img.alicdn.com/tps/TB1.7JYIpXXXXXgXFXXXXXXXXXX.jpg_140x140Q50s50.jpg_.webp",
+                "children": [ ]
+              },
+              {
+                "id": 10009,
+                "name": "碎花连衣裙",
+                "levelOneId": 0,
+                "levelTwoId": 1001,
+                "imgSrc": "https://img.alicdn.com/tps/TB1wEJTIpXXXXblXFXXXXXXXXXX.jpg_140x140Q50s50.jpg_.webp",
+                "children": [ ]
+              },
+              {
+                "id": 10010,
+                "name": "波点连衣裙",
+                "levelOneId": 0,
+                "levelTwoId": 1001,
+                "imgSrc": "https://img.alicdn.com/tps/TB1ZIxUIpXXXXbgXFXXXXXXXXXX.jpg_140x140Q50s50.jpg_.webp",
+                "children": [ ]
+              },
+              {
+                "id": 10011,
+                "name": "欧根纱连衣裙",
+                "levelOneId": 0,
+                "levelTwoId": 1001,
+                "imgSrc": "https://img.alicdn.com/tps/TB1Z48_IpXXXXa4XXXXXXXXXXXX.jpg_140x140Q50s50.jpg_.webp",
+                "children": [ ]
+              },
+              {
+                "id": 10012,
+                "name": "真丝连衣裙",
+                "levelOneId": 0,
+                "levelTwoId": 1001,
+                "imgSrc": "https://img.alicdn.com/tps/TB1pdFMIpXXXXbrXVXXXXXXXXXX.jpg_140x140Q50s50.jpg_.webp",
+                "children": [ ]
+              },
+              {
+                "id": 10013,
+                "name": "沙滩裙",
+                "levelOneId": 0,
+                "levelTwoId": 1001,
+                "imgSrc": "https://img.alicdn.com/tps/TB1lHhQIpXXXXc0XFXXXXXXXXXX.jpg_140x140Q50s50.jpg_.webp",
+                "children": [ ]
+              },
+              {
+                "id": 10014,
+                "name": "旗袍",
+                "levelOneId": 0,
+                "levelTwoId": 1001,
+                "imgSrc": "https://img.alicdn.com/tps/TB1mHdNIpXXXXaeXVXXXXXXXXXX.jpg_140x140Q50s50.jpg_.webp",
+                "children": [ ]
+              }
+            ]
+          },
+          {
+            "id": 1002,
+            "name": "时尚内搭",
+            "levelOneId": 0,
+            "children": [
+              {
+                "id": 10015,
+                "name": "衬衫",
+                "levelOneId": 0,
+                "levelTwoId": 1002,
+                "imgSrc": "https://img.alicdn.com/tps/i3/TB1sSIAGVXXXXX_XVXXMxXJVFXX-100-100.jpg_140x140Q50s50.jpg_.webp",
+                "children": [ ]
+              },
+              {
+                "id": 10016,
+                "name": "雪纺衫",
+                "levelOneId": 0,
+                "levelTwoId": 1002,
+                "imgSrc": "https://img.alicdn.com/tps/i4/TB1BIoCGVXXXXcWXFXXMxXJVFXX-100-100.jpg_140x140Q50s50.jpg_.webp",
+                "children": [ ]
+              },
+              {
+                "id": 10017,
+                "name": "蕾丝衫",
+                "levelOneId": 0,
+                "levelTwoId": 1002,
+                "imgSrc": "https://img.alicdn.com/tps/i3/TB1_kBBHpXXXXbaapXXMxXJVFXX-100-100.jpg_140x140Q50s50.jpg_.webp",
+                "children": [ ]
+              },
+              {
+                "id": 10018,
+                "name": "T恤",
+                "levelOneId": 0,
+                "levelTwoId": 1002,
+                "imgSrc": "https://img.alicdn.com/tps/i1/TB1t0QFGVXXXXcIXpXXMxXJVFXX-100-100.jpg_140x140Q50s50.jpg_.webp",
+                "children": [ ]
+              },
+              {
+                "id": 10019,
+                "name": "针织衫",
+                "levelOneId": 0,
+                "levelTwoId": 1002,
+                "imgSrc": "https://img.alicdn.com/tps/i4/TB1AXECGVXXXXcCXFXXMxXJVFXX-100-100.jpg_140x140Q50s50.jpg_.webp",
+                "children": [ ]
+              },
+              {
+                "id": 10020,
+                "name": "高领毛衣",
+                "levelOneId": 0,
+                "levelTwoId": 1002,
+                "imgSrc": "https://img.alicdn.com/tps/i2/TB1Bt7zGVXXXXcNaXXXMxXJVFXX-100-100.jpg_140x140Q50s50.jpg_.webp",
+                "children": [ ]
+              }
+            ]
+          },
+          {
+            "id": 1006,
+            "name": "品牌墙",
+            "levelOneId": 0,
+            "children": [
+              {
+                "id": 20000,
+                "levelOneId": 0,
+                "levelTwoId": 1006,
+                "imgSrc": "https://img.alicdn.com/tps/i2/T1wsW0FMFdXXb1upjX.jpg_140x140Q50s50.jpg_.webp",
+                "children": [ ]
+              },
+              {
+                "id": 20001,
+                "levelOneId": 0,
+                "levelTwoId": 1006,
+                "imgSrc": "https://img.alicdn.com/tps/i2/TB1JR6mGpXXXXanXpXXSutbFXXX.jpg_140x140Q50s50.jpg_.webp",
+                "children": [ ]
+              },
+              {
+                "id": 20002,
+                "levelOneId": 0,
+                "levelTwoId": 1006,
+                "imgSrc": "https://img.alicdn.com/tps/i2/TB1Y7t4FVXXXXc0XFXXtKXbFXXX.gif",
+                "children": [ ]
+              },
+              {
+                "id": 20003,
+                "levelOneId": 0,
+                "levelTwoId": 1006,
+                "imgSrc": "https://img.alicdn.com/tps/i2/T15Jb2FQpbXXb1upjX.jpg_140x140Q50s50.jpg_.webp",
+                "children": [ ]
+              },
+              {
+                "id": 20004,
+                "levelOneId": 0,
+                "levelTwoId": 1006,
+                "imgSrc": "https://img.alicdn.com/tps/i2/T1fH4ZFABcXXb1upjX.jpg_140x140Q50s50.jpg_.webp",
+                "children": [ ]
+              },
+              {
+                "id": 20005,
+                "levelOneId": 0,
+                "levelTwoId": 1006,
+                "imgSrc": "https://img.alicdn.com/tps/i2/i4/T1twjUXjlbXXXQXDnq-90-45.png_140x140Q50s50.jpg_.webp",
+                "children": [ ]
+              },
+              {
+                "id": 20006,
+                "levelOneId": 0,
+                "levelTwoId": 1006,
+                "imgSrc": "https://img.alicdn.com/tps/i2/TB1XCCHGFXXXXb7XVXXSutbFXXX.jpg_140x140Q50s50.jpg_.webp",
+                "children": [ ]
+              },
+              {
+                "id": 20007,
+                "levelOneId": 0,
+                "levelTwoId": 1006,
+                "imgSrc": "https://img.alicdn.com/tps/i2/T1CNBcFyldXXb1upjX.jpg_140x140Q50s50.jpg_.webp",
+                "children": [ ]
+              },
+              {
+                "id": 20008,
+                "levelOneId": 0,
+                "levelTwoId": 1006,
+                "imgSrc": "https://img.alicdn.com/tps/i2/TB1Gs6NGXXXXXbtXpXXSutbFXXX.jpg_140x140Q50s50.jpg_.webp",
+                "children": [ ]
+              },
+              {
+                "id": 20009,
+                "levelOneId": 0,
+                "levelTwoId": 1006,
+                "imgSrc": "https://img.alicdn.com/tps/i2/T1X1npFq0eXXb1upjX.jpg_140x140Q50s50.jpg_.webp",
+                "children": [ ]
+              },
+              {
+                "id": 20010,
+                "levelOneId": 0,
+                "levelTwoId": 1006,
+                "imgSrc": "https://img.alicdn.com/tps/i2/T166A5FexfXXb1upjX.jpg_140x140Q50s50.jpg_.webp",
+                "children": [ ]
+              },
+              {
+                "id": 20011,
+                "levelOneId": 0,
+                "levelTwoId": 1006,
+                "imgSrc": "https://img.alicdn.com/tps/i2/T1X1npFq0eXXb1upjX.jpg_140x140Q50s50.jpg_.webp",
+                "children": [ ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "name": "女鞋",
+        "children": [ ]
+      },
+      {
+        "id": 2,
+        "name": "男装",
+        "children": [ ]
+      },
+      {
+        "id": 3,
+        "name": "男鞋",
+        "children": [ ]
+      },
+      {
+        "id": 4,
+        "name": "内衣",
+        "children": [ ]
+      },
+      {
+        "id": 5,
+        "name": "母婴",
+        "children": [ ]
+      },
+      {
+        "id": 6,
+        "name": "数码",
+        "children": [ ]
+      },
+      {
+        "id": 7,
+        "name": "家电",
+        "children": [ ]
+      },
+      {
+        "id": 8,
+        "name": "美妆",
+        "children": [ ]
+      },
+      {
+        "id": 9,
+        "name": "运动",
+        "children": [ ]
+      },
+      {
+        "id": 10,
+        "name": "户外",
+        "children": [ ]
+      },
+      {
+        "id": 11,
+        "name": "家纺",
+        "children": [ ]
+      },
+      {
+        "id": 12,
+        "name": "配饰",
+        "children": [ ]
+      },
+      {
+        "id": 13,
+        "name": "图书音像",
+        "children": [ ]
+      },
+      {
+        "id": 14,
+        "name": "乐器",
+        "children": [ ]
+      }
+    ]
+  }
+}

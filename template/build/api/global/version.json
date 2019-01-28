@@ -1,0 +1,13 @@
+{
+  "Code": 0,
+  "Message": "SUCCESS",
+  "Result": {
+    "auto": {
+      "linkKey": "tmall",
+      "scheme": "tmall",
+      "smbSid": "eDxtEdgyF3oCAXrp5k63sBfz_1527351195328",
+      "type": 1
+    },
+    "version": "V1.0.0"
+  }
+}
