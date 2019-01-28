@@ -1,12 +1,12 @@
 'use strict';
-const exec = require('child_process').exec;
-const co = require('co');
-const prompt = require('co-prompt');
+// const exec = require('child_process').exec;
+// const co = require('co');
+// const prompt = require('co-prompt');
 const chalk = require('chalk');
 const fs = require('fs');
 const path = require('path');
 const readlineSync = require('readline-sync');
-
+const os = require('os');
 
 const isExist = (path) => {
   return new Promise((resolve, reject) => {
@@ -66,6 +66,11 @@ module.exports = () => {
   const main = async () => {
     // Wait for user's response.
     const projectName = await readlineSync.question('项目名称：');
+    const projectVersion = await readlineSync.question('版本号(0.0.1)：');
+    if (!projectName.trim()) {
+      console.log(chalk.red('必须输入项目名称'));
+    }
+
     console.log(chalk.white('开始生成...'));
     try {
       const srcPath = path.resolve(__dirname, '../template/');
@@ -85,6 +90,16 @@ module.exports = () => {
       } else {
         await copyDir(srcPath, tarPath);
       }
+      const packageJson = await fs.readFileSync(path.join(tarPath, 'package.json'), 'utf8');
+      const newPackage = Object.assign({}, JSON.parse(packageJson), {
+        name: projectName,
+        version: projectVersion || '0.0.1',
+        private: true
+      });
+      await fs.writeFileSync(
+        path.join(tarPath, 'package.json'),
+        JSON.stringify(newPackage, null, 2) + os.EOL
+      );
     } catch (e) {
       console.log(chalk.red(e));
     }
