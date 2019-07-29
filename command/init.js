@@ -7,6 +7,7 @@ const fs = require('fs');
 const path = require('path');
 const readlineSync = require('readline-sync');
 const os = require('os');
+const downloadGit = require('download-git-repo');
 
 const isExist = (path) => {
   return new Promise((resolve, reject) => {
@@ -84,6 +85,18 @@ const readdir = (tarPath) => {
   })
 };
 
+const downloadGitRepo = (repo, projectName) => {
+  return new Promise((resolve, reject) => {
+    //projectName 为下载到的本地目录
+    downloadGit(repo, projectName, (err) => {
+      if (err) {
+        reject(err);
+      }
+      resolve();
+    });
+  });
+};
+
 const copyFile = async (srcPath, tarPath) => {
   console.log(chalk.white(`复制文件，目标路径：${tarPath}`));
   const fileRst = await readFile(srcPath);
@@ -112,50 +125,85 @@ const copyDir = async (srcPath, tarPath) => {
   }
 };
 
-module.exports = () => {
-  const main = async () => {
-    // Wait for user's response.
-    const projectName = await readlineSync.question('项目名称：');
-    const projectVersion = await readlineSync.question('版本号(0.0.1)：');
-    if (!projectName.trim()) {
-      console.log(chalk.red('必须输入项目名称'));
-    }
+const fileModeFunc = async () => {
+  // Wait for user's response.
+  const projectName = await readlineSync.question('项目名称：');
+  const projectVersion = await readlineSync.question('版本号(0.0.1)：');
+  if (!projectName.trim()) {
+    console.log(chalk.red('必须输入项目名称'));
+  }
 
-    console.log(chalk.white('开始生成...'));
-    try {
-      const srcPath = path.resolve(__dirname, '../template/');
-      const tarPath = path.resolve(projectName);
-      if (!srcPath) {
-        console.log(chalk.red(`无法读取源路径：${srcPath}`));
-        return;
-      }
-      await isExist(srcPath);
-      if (!tarPath) {
-        console.log(chalk.red(`无法读取目标路径：${tarPath}`));
-        return;
-      }
-      const type = await pathType(srcPath);
-      if (type === "file") {
-        await copyFile(srcPath, tarPath);
-      } else {
-        await copyDir(srcPath, tarPath);
-      }
-      const packageJson = await readFile(path.join(tarPath, 'package.json'), 'utf8');
-      const newPackage = Object.assign({}, JSON.parse(packageJson), {
-        name: projectName,
-        version: projectVersion || '0.0.1',
-        private: true
-      });
-      await writeFile(
-        path.join(tarPath, 'package.json'),
-        JSON.stringify(newPackage, null, 2) + os.EOL
-      );
-      console.log(chalk.green('生成成功！'));
-    } catch (e) {
-      console.log(chalk.red(e));
+  console.log(chalk.white('开始生成...'));
+  try {
+    const srcPath = path.resolve(__dirname, '../template/');
+    const tarPath = path.resolve(projectName);
+    if (!srcPath) {
+      console.log(chalk.red(`无法读取源路径：${srcPath}`));
+      return;
     }
-  };
-  main();
+    await isExist(srcPath);
+    if (!tarPath) {
+      console.log(chalk.red(`无法读取目标路径：${tarPath}`));
+      return;
+    }
+    const type = await pathType(srcPath);
+    if (type === "file") {
+      await copyFile(srcPath, tarPath);
+    } else {
+      await copyDir(srcPath, tarPath);
+    }
+    const packageJson = await readFile(path.join(tarPath, 'package.json'), 'utf8');
+    const newPackage = Object.assign({}, JSON.parse(packageJson), {
+      name: projectName,
+      version: projectVersion || '0.0.1',
+      private: true
+    });
+    await writeFile(
+      path.join(tarPath, 'package.json'),
+      JSON.stringify(newPackage, null, 2) + os.EOL
+    );
+    console.log(chalk.green('生成成功！'));
+  } catch (e) {
+    console.log(chalk.red(e));
+  }
+};
+
+const gitModeFunc = async () => {
+  // Wait for user's response.
+  const projectName = await readlineSync.question('项目名称：');
+  const projectVersion = await readlineSync.question('版本号(0.0.1)：');
+  if (!projectName.trim()) {
+    console.log(chalk.red('必须输入项目名称'));
+  }
+
+  console.log(chalk.white('开始生成...'));
+  try {
+    const tarPath = path.resolve(projectName);
+    if (!tarPath) {
+      console.log(chalk.red(`无法读取目标路径：${tarPath}`));
+      return;
+    }
+    const repo = 'ThiagoSun/react-tmall-sp';
+    await downloadGitRepo(repo, projectName);
+
+    const packageJson = await readFile(path.join(tarPath, 'package.json'), 'utf8');
+    const newPackage = Object.assign({}, JSON.parse(packageJson), {
+      name: projectName,
+      version: projectVersion || '0.0.1',
+      private: true
+    });
+    await writeFile(
+      path.join(tarPath, 'package.json'),
+      JSON.stringify(newPackage, null, 2) + os.EOL
+    );
+    console.log(chalk.green('生成成功！'));
+  } catch (e) {
+    console.log(chalk.red(e));
+  }
+};
+
+module.exports = () => {
+  gitModeFunc();
 };
 
 
