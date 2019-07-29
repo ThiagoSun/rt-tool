@@ -36,9 +36,58 @@ const pathType = (path) => {
   });
 };
 
+const readFile = (srcPath) => {
+  return new Promise((resolve, reject) => {
+    fs.readFile(srcPath, (err, data) => {
+      if (err) {
+        reject(`文件读取失败：${srcPath}`);
+      } else {
+        resolve(data);
+      }
+    });
+  })
+};
+
+const writeFile = (tarPath, file) => {
+  return new Promise((resolve, reject) => {
+    fs.writeFile(tarPath, file, (err, data) => {
+      if (err) {
+        reject(`文件写入失败：${tarPath}`);
+      } else {
+        resolve(data);
+      }
+    });
+  })
+};
+
+const mkdir = (tarPath) => {
+  return new Promise((resolve, reject) => {
+    fs.mkdir(tarPath, (err, data) => {
+      if (err) {
+        reject(`创建文件夹失败：${tarPath}`);
+      } else {
+        resolve(data);
+      }
+    });
+  })
+};
+
+const readdir = (tarPath) => {
+  return new Promise((resolve, reject) => {
+    fs.readdir(tarPath, (err, data) => {
+      if (err) {
+        reject(`读取文件夹失败：${tarPath}`);
+      } else {
+        resolve(data);
+      }
+    });
+  })
+};
+
 const copyFile = async (srcPath, tarPath) => {
   console.log(chalk.white(`复制文件，目标路径：${tarPath}`));
-  await fs.writeFileSync(tarPath, fs.readFileSync(srcPath));
+  const fileRst = await readFile(srcPath);
+  await writeFile(tarPath, fileRst);
 };
 
 const copyDir = async (srcPath, tarPath) => {
@@ -47,17 +96,18 @@ const copyDir = async (srcPath, tarPath) => {
     await isExist(tarPath);
   } catch (err) {
     console.log(chalk.white(`创建文件夹：${tarPath}`));
-    await fs.mkdirSync(tarPath);
+    await mkdir(tarPath);
   }
-  const files = await fs.readdirSync(srcPath);
+  const files = await readdir(srcPath);
   for (let i = 0; i < files.length; i++) {
     const path = files[i];
     const src = `${srcPath}/${path}`;
     const dist = `${tarPath}/${path}`;
-    if (fs.statSync(src).isFile()) {
-      await copyFile(src, dist);
-    } else if (fs.statSync(src).isDirectory()) {
+    const srcType = await pathType(src);
+    if (srcType === 'dir') {
       await copyDir(src, dist);
+    } else if (srcType === 'file') {
+      await copyFile(src, dist);
     }
   }
 };
@@ -90,20 +140,20 @@ module.exports = () => {
       } else {
         await copyDir(srcPath, tarPath);
       }
-      const packageJson = await fs.readFileSync(path.join(tarPath, 'package.json'), 'utf8');
+      const packageJson = await readFile(path.join(tarPath, 'package.json'), 'utf8');
       const newPackage = Object.assign({}, JSON.parse(packageJson), {
         name: projectName,
         version: projectVersion || '0.0.1',
         private: true
       });
-      await fs.writeFileSync(
+      await writeFile(
         path.join(tarPath, 'package.json'),
         JSON.stringify(newPackage, null, 2) + os.EOL
       );
+      console.log(chalk.green('生成成功！'));
     } catch (e) {
       console.log(chalk.red(e));
     }
-    console.log(chalk.green('生成成功！'));
   };
   main();
 };
