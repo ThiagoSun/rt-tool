@@ -170,7 +170,7 @@ const fileModeFunc = async () => {
 
 const gitModeFunc = async () => {
   // Wait for user's response.
-  const projectName = await readlineSync.question('Project name::');
+  const projectName = await readlineSync.question('Project name:');
   const projectVersion = await readlineSync.question('Version(0.0.1):');
   if (!projectName.trim()) {
     console.log(chalk.red('You must input project name'));
