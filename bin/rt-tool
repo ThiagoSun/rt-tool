@@ -9,7 +9,7 @@ program
   .version(packageInfo.version)
   .usage('<command> [options]');
 program.command('init')
-  .description("创建新项目")
+  .description("Create new project:")
   .alias('i')
   .action(() => {
     init();

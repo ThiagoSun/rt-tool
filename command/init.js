@@ -13,7 +13,7 @@ const isExist = (path) => {
   return new Promise((resolve, reject) => {
     fs.access(path, (err) => {
       if (err !== null) {
-        reject(`${path} 不存在`);
+        reject(`${path} doesn't exist.`);
       } else {
         resolve(true);
       }
@@ -31,7 +31,7 @@ const pathType = (path) => {
           resolve("file");
         }
       } else {
-        reject(`文件或路径不存在：${path}`);
+        reject(`File or path doesn't exist：${path}`);
       }
     });
   });
@@ -41,7 +41,7 @@ const readFile = (srcPath) => {
   return new Promise((resolve, reject) => {
     fs.readFile(srcPath, (err, data) => {
       if (err) {
-        reject(`文件读取失败：${srcPath}`);
+        reject(`Failed to read file：${srcPath}`);
       } else {
         resolve(data);
       }
@@ -53,7 +53,7 @@ const writeFile = (tarPath, file) => {
   return new Promise((resolve, reject) => {
     fs.writeFile(tarPath, file, (err, data) => {
       if (err) {
-        reject(`文件写入失败：${tarPath}`);
+        reject(`Failed to write file：${tarPath}`);
       } else {
         resolve(data);
       }
@@ -65,7 +65,7 @@ const mkdir = (tarPath) => {
   return new Promise((resolve, reject) => {
     fs.mkdir(tarPath, (err, data) => {
       if (err) {
-        reject(`创建文件夹失败：${tarPath}`);
+        reject(`Failed to create folder：${tarPath}`);
       } else {
         resolve(data);
       }
@@ -77,7 +77,7 @@ const readdir = (tarPath) => {
   return new Promise((resolve, reject) => {
     fs.readdir(tarPath, (err, data) => {
       if (err) {
-        reject(`读取文件夹失败：${tarPath}`);
+        reject(`Failed to read folder：${tarPath}`);
       } else {
         resolve(data);
       }
@@ -98,17 +98,17 @@ const downloadGitRepo = (repo, projectName) => {
 };
 
 const copyFile = async (srcPath, tarPath) => {
-  console.log(chalk.white(`复制文件，目标路径：${tarPath}`));
+  console.log(chalk.white(`Copy file to：${tarPath}`));
   const fileRst = await readFile(srcPath);
   await writeFile(tarPath, fileRst);
 };
 
 const copyDir = async (srcPath, tarPath) => {
-  console.log(chalk.white(`复制文件夹，目标路径：${tarPath}`));
+  console.log(chalk.white(`Copy folder to：${tarPath}`));
   try {
     await isExist(tarPath);
   } catch (err) {
-    console.log(chalk.white(`创建文件夹：${tarPath}`));
+    console.log(chalk.white(`Create folder：${tarPath}`));
     await mkdir(tarPath);
   }
   const files = await readdir(srcPath);
@@ -127,23 +127,23 @@ const copyDir = async (srcPath, tarPath) => {
 
 const fileModeFunc = async () => {
   // Wait for user's response.
-  const projectName = await readlineSync.question('项目名称：');
-  const projectVersion = await readlineSync.question('版本号(0.0.1)：');
+  const projectName = await readlineSync.question('Project name：');
+  const projectVersion = await readlineSync.question('Version(0.0.1)：');
   if (!projectName.trim()) {
-    console.log(chalk.red('必须输入项目名称'));
+    console.log(chalk.red('You must input project name'));
   }
 
-  console.log(chalk.white('开始生成...'));
+  console.log(chalk.white('Start...'));
   try {
     const srcPath = path.resolve(__dirname, '../template/');
     const tarPath = path.resolve(projectName);
     if (!srcPath) {
-      console.log(chalk.red(`无法读取源路径：${srcPath}`));
+      console.log(chalk.red(`Can't find source path：${srcPath}`));
       return;
     }
     await isExist(srcPath);
     if (!tarPath) {
-      console.log(chalk.red(`无法读取目标路径：${tarPath}`));
+      console.log(chalk.red(`Can't find target path：${tarPath}`));
       return;
     }
     const type = await pathType(srcPath);
@@ -162,7 +162,7 @@ const fileModeFunc = async () => {
       path.join(tarPath, 'package.json'),
       JSON.stringify(newPackage, null, 2) + os.EOL
     );
-    console.log(chalk.green('生成成功！'));
+    console.log(chalk.green('Successful！'));
   } catch (e) {
     console.log(chalk.red(e));
   }
@@ -170,17 +170,17 @@ const fileModeFunc = async () => {
 
 const gitModeFunc = async () => {
   // Wait for user's response.
-  const projectName = await readlineSync.question('项目名称：');
-  const projectVersion = await readlineSync.question('版本号(0.0.1)：');
+  const projectName = await readlineSync.question('Project name：：');
+  const projectVersion = await readlineSync.question('Version(0.0.1)：');
   if (!projectName.trim()) {
-    console.log(chalk.red('必须输入项目名称'));
+    console.log(chalk.red('You must input project name'));
   }
 
-  console.log(chalk.white('开始生成...'));
+  console.log(chalk.white('Start...'));
   try {
     const tarPath = path.resolve(projectName);
     if (!tarPath) {
-      console.log(chalk.red(`无法读取目标路径：${tarPath}`));
+      console.log(chalk.red(`Can't find target path：${tarPath}`));
       return;
     }
     const repo = 'ThiagoSun/react-tmall-sp';
@@ -196,7 +196,7 @@ const gitModeFunc = async () => {
       path.join(tarPath, 'package.json'),
       JSON.stringify(newPackage, null, 2) + os.EOL
     );
-    console.log(chalk.green('生成成功！'));
+    console.log(chalk.green('Successful！'));
   } catch (e) {
     console.log(chalk.red(e));
   }
