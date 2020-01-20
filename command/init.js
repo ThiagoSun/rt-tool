@@ -31,7 +31,7 @@ const pathType = (path) => {
           resolve("file");
         }
       } else {
-        reject(`File or path doesn't exist：${path}`);
+        reject(`File or path doesn't exist:${path}`);
       }
     });
   });
@@ -41,7 +41,7 @@ const readFile = (srcPath) => {
   return new Promise((resolve, reject) => {
     fs.readFile(srcPath, (err, data) => {
       if (err) {
-        reject(`Failed to read file：${srcPath}`);
+        reject(`Failed to read file:${srcPath}`);
       } else {
         resolve(data);
       }
@@ -53,7 +53,7 @@ const writeFile = (tarPath, file) => {
   return new Promise((resolve, reject) => {
     fs.writeFile(tarPath, file, (err, data) => {
       if (err) {
-        reject(`Failed to write file：${tarPath}`);
+        reject(`Failed to write file:${tarPath}`);
       } else {
         resolve(data);
       }
@@ -65,7 +65,7 @@ const mkdir = (tarPath) => {
   return new Promise((resolve, reject) => {
     fs.mkdir(tarPath, (err, data) => {
       if (err) {
-        reject(`Failed to create folder：${tarPath}`);
+        reject(`Failed to create folder:${tarPath}`);
       } else {
         resolve(data);
       }
@@ -77,7 +77,7 @@ const readdir = (tarPath) => {
   return new Promise((resolve, reject) => {
     fs.readdir(tarPath, (err, data) => {
       if (err) {
-        reject(`Failed to read folder：${tarPath}`);
+        reject(`Failed to read folder:${tarPath}`);
       } else {
         resolve(data);
       }
@@ -98,17 +98,17 @@ const downloadGitRepo = (repo, projectName) => {
 };
 
 const copyFile = async (srcPath, tarPath) => {
-  console.log(chalk.white(`Copy file to：${tarPath}`));
+  console.log(chalk.white(`Copy file to:${tarPath}`));
   const fileRst = await readFile(srcPath);
   await writeFile(tarPath, fileRst);
 };
 
 const copyDir = async (srcPath, tarPath) => {
-  console.log(chalk.white(`Copy folder to：${tarPath}`));
+  console.log(chalk.white(`Copy folder to:${tarPath}`));
   try {
     await isExist(tarPath);
   } catch (err) {
-    console.log(chalk.white(`Create folder：${tarPath}`));
+    console.log(chalk.white(`Create folder:${tarPath}`));
     await mkdir(tarPath);
   }
   const files = await readdir(srcPath);
@@ -127,8 +127,8 @@ const copyDir = async (srcPath, tarPath) => {
 
 const fileModeFunc = async () => {
   // Wait for user's response.
-  const projectName = await readlineSync.question('Project name：');
-  const projectVersion = await readlineSync.question('Version(0.0.1)：');
+  const projectName = await readlineSync.question('Project name:');
+  const projectVersion = await readlineSync.question('Version(0.0.1):');
   if (!projectName.trim()) {
     console.log(chalk.red('You must input project name'));
   }
@@ -138,12 +138,12 @@ const fileModeFunc = async () => {
     const srcPath = path.resolve(__dirname, '../template/');
     const tarPath = path.resolve(projectName);
     if (!srcPath) {
-      console.log(chalk.red(`Can't find source path：${srcPath}`));
+      console.log(chalk.red(`Can't find source path:${srcPath}`));
       return;
     }
     await isExist(srcPath);
     if (!tarPath) {
-      console.log(chalk.red(`Can't find target path：${tarPath}`));
+      console.log(chalk.red(`Can't find target path:${tarPath}`));
       return;
     }
     const type = await pathType(srcPath);
@@ -170,8 +170,8 @@ const fileModeFunc = async () => {
 
 const gitModeFunc = async () => {
   // Wait for user's response.
-  const projectName = await readlineSync.question('Project name：：');
-  const projectVersion = await readlineSync.question('Version(0.0.1)：');
+  const projectName = await readlineSync.question('Project name::');
+  const projectVersion = await readlineSync.question('Version(0.0.1):');
   if (!projectName.trim()) {
     console.log(chalk.red('You must input project name'));
   }
@@ -180,7 +180,7 @@ const gitModeFunc = async () => {
   try {
     const tarPath = path.resolve(projectName);
     if (!tarPath) {
-      console.log(chalk.red(`Can't find target path：${tarPath}`));
+      console.log(chalk.red(`Can't find target path:${tarPath}`));
       return;
     }
     const repo = 'ThiagoSun/react-tmall-sp';
